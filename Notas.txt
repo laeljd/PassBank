@@ -1,0 +1,16 @@
+como abrir o dialog de carregar arquivo
+e setar o diretorio inicial
+mais para frente quando tiver o arquivo de settingns (preferencias) colocar nele o ultimo diretorio que foi escolhido
+
+https://www.c-sharpcorner.com/uploadfile/mahesh/openfiledialog-in-wpf/
+
+
+
+Salvar dados de configurções como por exemplo o arquivo aberto recentemente
+
+https://docs.microsoft.com/pt-br/visualstudio/ide/managing-application-settings-dotnet?view=vs-2015&redirectedfrom=MSDN
+
+
+adicionar iten na lista de recentes dinamicamente
+
+https://www.c-sharpcorner.com/uploadfile/mahesh/listview-in-wpf/
