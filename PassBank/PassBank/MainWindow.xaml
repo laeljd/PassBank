@@ -21,23 +21,19 @@
         <Grid Margin="0,165,15,15" Grid.Column="1">
             <Rectangle Fill="#FFF4F4F5" Stroke="Black"/>
             <Label Content="Recentes" HorizontalAlignment="Left" Margin="10" FontSize="24"/>
-            <ListView Margin="10,50,10,10" HorizontalContentAlignment="Stretch">
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="Auto"/>
-                    </Grid.ColumnDefinitions>
-                    <ListViewItem Content="Meus_login.log" FontSize="24" Height="40"/>
-                    <Button Content="x" VerticalContentAlignment="Center" HorizontalAlignment="Right" Width="36" Height="36" Margin="0,0,-2,0" FontSize="24" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black" HorizontalContentAlignment="Center" FlowDirection="RightToLeft"/>
-                </Grid>
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="Auto"/>
-                    </Grid.ColumnDefinitions>
-                    <ListViewItem Content="Meus_login2.log" FontSize="24" Height="40"/>
-                    <Button Content="x" VerticalContentAlignment="Center" HorizontalAlignment="Right" Width="36" Height="36" Margin="0,0,-2,0" FontSize="24" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black" HorizontalContentAlignment="Center" FlowDirection="RightToLeft"/>
-                </Grid>
+            <ListView Name="RecentListView" Margin="10,50,10,10" HorizontalContentAlignment="Stretch">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <ListViewItem  Content="{Binding name}" ToolTip="{Binding path}" FontSize="24" Height="40" MouseDoubleClick="ListViewItem_Selected"/>
+                            <Button Content="x" VerticalContentAlignment="Center" HorizontalAlignment="Right" Width="36" Height="36" Margin="0,0,-2,0" FontSize="24" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black" HorizontalContentAlignment="Center" FlowDirection="RightToLeft"  Click="Button_Click_RemoveRecentFileItem"/>
+                        </Grid>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
             </ListView>
         </Grid>
     </Grid>

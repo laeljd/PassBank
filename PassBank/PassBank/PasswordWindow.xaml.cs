@@ -23,5 +23,10 @@ namespace PassBank
         {
             InitializeComponent();
         }
+
+        private void NewButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }

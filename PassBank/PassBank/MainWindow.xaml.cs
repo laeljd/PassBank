@@ -21,15 +21,14 @@ namespace PassBank
     /// </summary>
     public partial class MainWindow : Window
     {
+
+        
+        FilesSettings _fileSetting = new FilesSettings();
+
         public MainWindow()
         {
             InitializeComponent();
-            recentListView
-        }
-
-        private void ListViewItem_Selected(object sender, RoutedEventArgs e)
-        {
-
+            RecentListView.ItemsSource = _fileSetting.recentFilesList;
         }
 
         private void OpenButton_Click(object sender, RoutedEventArgs e)
@@ -52,14 +51,11 @@ namespace PassBank
                 passWindow.Title = fileName;
                 passWindow.Show();
 
-
-                this.NewRecentFile(fileName, filePath);
-
+                this.AddRecentFile(fileName, filePath);
 
 
+                ///Para Teste visualizar o arquivo como texto
                 TesteBox.Text = System.IO.File.ReadAllText(openFileDlg.FileName);
-                //FileNameTextBox.Text = openFileDlg.FileName;
-                //TextBlock1.Text = System.IO.File.ReadAllText(openFileDlg.FileName);
             }
         }
 
@@ -67,6 +63,51 @@ namespace PassBank
         {
             PasswordWindow passWindow = new PasswordWindow();
             passWindow.Show();
+        }
+
+        public void AddRecentFile(string name, string path)
+        {
+            _fileSetting.AddRecentFile(name, path);
+            _fileSetting.Save();
+            UpdateRecentFileList();
+        }
+
+        public void RemoveRecentFile(int index)
+        {
+            _fileSetting.RemoveRecentFile(index);
+            _fileSetting.Save();
+            UpdateRecentFileList();
+        }
+
+        private void ListViewItem_Selected(object sender, RoutedEventArgs e)
+        {
+            RecentFile item = (sender as FrameworkElement).DataContext as RecentFile;
+            //int index = RecentListView.Items.IndexOf(item);
+
+            string fileName = item.name;
+            string filePath = item.path;
+
+            PasswordWindow passWindow = new PasswordWindow();
+            passWindow.Title = fileName;
+            passWindow.Show();
+
+            this.AddRecentFile(fileName, filePath);
+
+            ///Para Teste visualizar o arquivo como texto
+            TesteBox.Text = System.IO.File.ReadAllText(filePath);
+
+        }
+
+        private void Button_Click_RemoveRecentFileItem(object sender, RoutedEventArgs e)
+        {
+            var item = (sender as FrameworkElement).DataContext;
+            int index = RecentListView.Items.IndexOf(item);
+            this.RemoveRecentFile(index);
+        }
+
+        public void UpdateRecentFileList() {
+            //RecentListView.ItemsSource = _fileSetting.recentFilesList;
+            RecentListView.Items.Refresh();
         }
 
         [Serializable]
@@ -81,16 +122,8 @@ namespace PassBank
                 this.path = path;
             }
         }
-            
 
-        public void NewRecentFile(string name, string path)
-        {
-            RecentFilesSettings recentFileSetting = new RecentFilesSettings();
-            recentFileSetting.Add(name, path);
-            recentFileSetting.Save();
-        }
-
-        sealed class RecentFilesSettings : ApplicationSettingsBase
+        sealed class FilesSettings : ApplicationSettingsBase
         {
             [DefaultSettingValue(""), UserScopedSetting]
             [SettingsSerializeAs(SettingsSerializeAs.Binary)]
@@ -99,11 +132,19 @@ namespace PassBank
                 get { return this["recentFilesList"] as List<RecentFile>;  }
             }
 
-            public void Add(string name, string path)
+            public void AddRecentFile(string name, string path)
             {
-                recentFilesList.Add(new RecentFile(name, path));
+                recentFilesList.RemoveAll(element => element.path == path);
+                recentFilesList.Insert(0, new RecentFile(name, path));
+                this["recentFilesList"] = recentFilesList;
+            }
+
+            public void RemoveRecentFile(int index)
+            {
+                recentFilesList.RemoveAt(index);
                 this["recentFilesList"] = recentFilesList;
             }
         }
+
     }
 }
