@@ -261,4 +261,4 @@ __pycache__/
 *.pyc
 
 # Notes
-\PassBank\Notas.txt
+PassBank/notas.txt
