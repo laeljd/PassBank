@@ -24,8 +24,31 @@ namespace PassBank
             InitializeComponent();
         }
 
-        private void NewButton_Click(object sender, RoutedEventArgs e)
+        private void CancelButton_Click(object sender, RoutedEventArgs e)
         {
+            this.Close();
+        }
+
+        private void OpenButton_Click(object sender, RoutedEventArgs e)
+        {
+            //check password
+            this.OpenMainWindow();
+        }
+
+
+        private void OnKeyDownHandler(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Return)
+            {
+                //check password
+                this.OpenMainWindow();
+            }
+        }
+
+        private void OpenMainWindow() {
+
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
             this.Close();
         }
     }
