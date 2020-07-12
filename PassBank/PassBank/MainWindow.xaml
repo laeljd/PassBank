@@ -5,9 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PassBank"
         mc:Ignorable="d"
-        Title="Window1" Height="450" Width="800">
+        Title="Window1" Height="450" Width="800" Background="#FF999A95">
     <Grid VerticalAlignment="Top" RenderTransformOrigin="1.492,0.552">
-        <Rectangle Fill="#FFECD1D1"/>
         <Grid Margin="10,10,0,0" Height="60" VerticalAlignment="Top">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="70"/>
@@ -15,54 +14,51 @@
                 <ColumnDefinition Width="70"/>
                 <ColumnDefinition Width="70"/>
             </Grid.ColumnDefinitions>
-            <Button x:Name="openFileButton" Content="Abrir" Height="60" Grid.Column="0" Width="60" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-            <Button x:Name="newFileButton" Content="Novo" Height="60" Grid.Column="1" Width="60" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-            <Button x:Name="saveFileButton" Content="Salvar" Height="60" Grid.Column="2" Width="60" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-            <Button x:Name="configButton" Content="Config" Height="60" Grid.Column="3" Width="60" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+            <Button x:Name="openFileButton" Content="Abrir" Height="50" Width="50" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Style="{DynamicResource ButtonStyle}"/>
+            <Button x:Name="newFileButton" Content="Novo" Height="50" Width="50" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Style="{DynamicResource ButtonStyle}"/>
+            <Button x:Name="saveFileButton" Content="Salvar"  Height="50" Width="50" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center" Style="{DynamicResource ButtonStyle}"/>
+            <Button x:Name="configButton" Content="Config"  Height="50" Width="50" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Center" Style="{DynamicResource ButtonStyle}"/>
         </Grid>
         <Grid Margin="10,80,10,0" VerticalAlignment="Top">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="391*"/>
                 <ColumnDefinition Width="5*"/>
             </Grid.ColumnDefinitions>
-            <Button x:Name="searchButton" Height="30" FontSize="24" VerticalAlignment="Center" Width="30" HorizontalAlignment="Right" Grid.ColumnSpan="2"/>
-            <TextBox x:Name="searchInput" Margin="0,0,30,0" Text="Pesquisar..." VerticalAlignment="Center" Height="30" FontSize="18"/>
+            <TextBox x:Name="searchInput" Margin="0,0,30,0" Text=" Pesquisar..." VerticalAlignment="Center" Height="30" FontSize="18" Style="{DynamicResource TextBoxStyle}"/>
+            <Button x:Name="searchButton" Height="30" FontSize="24" VerticalAlignment="Center" Width="30" HorizontalAlignment="Right" Grid.ColumnSpan="2" Style="{DynamicResource ButtonStyle}"/>
         </Grid>
-        <Rectangle Fill="#FFC1C1C1" Margin="10,130,10,-305"/>
+        <Border Margin="10,130,10,-305" BorderBrush="Black" BorderThickness="1" Background="#FFAFB0AB" CornerRadius="8"/>
         <Grid Margin="10,130,10,-305">
             <!--<ListView>-->
             <!--<ListView.ItemTemplate>-->
             <!--<DataTemplate>-->
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="Auto"/>
-            </Grid.ColumnDefinitions>
-            <Rectangle  Height="100" Fill="#FF6C2A76" Grid.Column="0"/>
 
-            <Grid Height="100" Grid.Column="0">
+            <Border Height="80" Margin="8" BorderBrush="Black" BorderThickness="1" Background="#FFC6C7C2" CornerRadius="8"/>
+            <Grid Height="80" Margin="8">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="auto"/>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="auto"/>
                 </Grid.ColumnDefinitions>
 
-                <Rectangle Height="60" Width="60"  Grid.Column="0" HorizontalAlignment="Center" Fill="#FF6666FF" VerticalAlignment="Center"/>
-                <Image Height="60" Width="60" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <Rectangle Height="60" Width="60" Grid.Column="0" HorizontalAlignment="Center" Fill="#FFEAEAFF" VerticalAlignment="Center"/>
+                <Image Height="60" Width="60" Margin="8" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 
                 <Label Content="Site.com" Grid.Column="1" FontSize="22" VerticalAlignment="Top"/>
 
-                <Grid Grid.Column="2" Height="40" VerticalAlignment="Top">
+                <Grid Grid.Column="2" Height="40" Margin="0,5,0,0"  VerticalAlignment="Top">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="30"/>
                         <ColumnDefinition Width="30"/>
                         <ColumnDefinition Width="auto"/>
                         <ColumnDefinition Width="auto"/>
                     </Grid.ColumnDefinitions>
-                    <Button x:Name="copyLoginButton" Grid.Column="1" Width="20" Height="20" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <Button x:Name="copyLoginButton" Grid.Column="1" Width="20" Height="20" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{DynamicResource ButtonStyleSmall}"/>
                     <Label Content="login:" Grid.Column="2" FontSize="22" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                     <Label Content="nomeEnter" Grid.Column="3" FontSize="22" VerticalAlignment="Center" HorizontalAlignment="Left"/>
                 </Grid>
-                <Grid Grid.Column="2" Height="40" Margin="0,40,0,0" VerticalAlignment="Top" >
+                <Grid Grid.Column="2" Height="40" Margin="0,35,0,0" VerticalAlignment="Top" >
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="30"/>
                         <ColumnDefinition Width="30"/>
@@ -71,17 +67,15 @@
                         <ColumnDefinition Width="auto"/>
                     </Grid.ColumnDefinitions>
 
-                    <Button x:Name="viewPassButton" Grid.Column="0" Width="20" Height="20" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                    <Button x:Name="copyPassButton" Grid.Column="1" Width="20" Height="20" HorizontalAlignment="Center"/>
+                    <Button x:Name="viewPassButton" Grid.Column="0" Width="20" Height="20" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{DynamicResource ButtonStyleSmall}"/>
+                    <Button x:Name="copyPassButton" Grid.Column="1" Width="20" Height="20" HorizontalAlignment="Center" Style="{DynamicResource ButtonStyleSmall}"/>
                     <Label Content="senha:" Grid.Column="2" HorizontalAlignment="Left" FontSize="22" VerticalAlignment="Center"/>
                     <PasswordBox Grid.Column="3" HorizontalAlignment="Left" FontSize="16" Password="12345678" IsEnabled="False" Grid.ColumnSpan="2" VerticalAlignment="Center"/>
                 </Grid>
-
-            </Grid>
-            <Rectangle  Height="100" Fill="#FF4BC16C" Grid.Column="1"/>
-            <Grid  Height="100" Grid.Column="1" VerticalAlignment="Center">
-                <Button x:Name="editButton" Grid.Column="1" Width="30" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,-40,10,0"/>
-                <Button x:Name="removeButton" Grid.Column="1" Width="30" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,40,10,0"/>
+                <Grid  Height="100" Grid.Column="4" Margin="8,0,5,0" VerticalAlignment="Center">
+                    <Button x:Name="editButton" Grid.Column="1" Width="30" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,36" Style="{DynamicResource ButtonStyle}"/>
+                    <Button x:Name="removeButton" Grid.Column="1" Width="30" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,36,0,0" Style="{DynamicResource ButtonStyle}"/>
+                </Grid>
             </Grid>
             <!--</DataTemplate>-->
             <!--</ListView.ItemTemplate>-->

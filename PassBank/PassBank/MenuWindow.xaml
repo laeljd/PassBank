@@ -5,23 +5,29 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PassBank"
         mc:Ignorable="d"
-        Title="PassBank" Height="450" Width="720" FontSize="20" MinWidth="540" MinHeight="338"
+        Title="PassBank" Height="500" Width="800" FontSize="20" MinWidth="540" MinHeight="338"
         WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="170"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Button x:Name="openButton" Content="Abrir" HorizontalAlignment="Left" Margin="15,15,0,0" VerticalAlignment="Top" Width="140" Height="60" FontSize="24" Grid.Column="0" Click="OpenButton_Click"/>
-        <Button x:Name="newButton" Content="Novo" HorizontalAlignment="Left" Margin="15,90,0,0" VerticalAlignment="Top" Width="140" Height="60" FontSize="24" Grid.Column="0" Click="NewButton_Click"/>
+
+        <Rectangle Fill="#FF999A95"/>
+        <Rectangle Fill="#FF999A95" Grid.Column="1"/>
+        <Button x:Name="openButton" Content="Abrir" HorizontalAlignment="Left" Margin="15,15,0,0" VerticalAlignment="Top" Width="140" Height="60" FontSize="24" Grid.Column="0" Click="OpenButton_Click" Style="{DynamicResource ButtonStyle}"/>
+        <Button x:Name="newButton" Content="Novo" HorizontalAlignment="Left" Margin="15,90,0,0" VerticalAlignment="Top" Width="140" Height="60" FontSize="24" Grid.Column="0" Click="NewButton_Click" Style="{DynamicResource ButtonStyle}"/>
         <Grid Margin="0,15,15,0" VerticalAlignment="Top" Height="135" Grid.Column="1">
-            <Rectangle Fill="#FFF4F4F5" Stroke="Black"/>
-            <TextBox x:Name="TesteBox" Text="teste" Margin="10"></TextBox>
+
+            <Border BorderBrush="Black" BorderThickness="1" Background="#FFAFB0AB" CornerRadius="8"/>
+
+            <TextBox x:Name="TesteBox" Text="teste" Margin="10" BorderBrush="Black" BorderThickness="1" Background="#FFC6C7C2"></TextBox>
         </Grid>
         <Grid Margin="0,165,15,15" Grid.Column="1">
-            <Rectangle Fill="#FFF4F4F5" Stroke="Black"/>
+            
+            <Border BorderBrush="Black" BorderThickness="1" Background="#FFAFB0AB" CornerRadius="8"/>
             <Label Content="Recentes" HorizontalAlignment="Left" Margin="10" FontSize="24"/>
-            <ListView Name="RecentListView" Margin="10,50,10,10" HorizontalContentAlignment="Stretch">
+            <ListView Name="RecentListView" Margin="10,50,10,10" HorizontalContentAlignment="Stretch" Background="#FFAFB0AB" Style="{DynamicResource ListViewStyle}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <Grid>
@@ -29,12 +35,13 @@
                                 <ColumnDefinition Width="*"/>
                                 <ColumnDefinition Width="Auto"/>
                             </Grid.ColumnDefinitions>
-                            <ListViewItem  Content="{Binding name}" ToolTip="{Binding path}" FontSize="24" Height="40" MouseDoubleClick="ListViewItem_Selected"/>
-                            <Button Content="x" VerticalContentAlignment="Center" HorizontalAlignment="Right" Width="36" Height="36" Margin="0,0,-2,0" FontSize="24" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black" HorizontalContentAlignment="Center" FlowDirection="RightToLeft"  Click="Button_Click_RemoveRecentFileItem"/>
+                            <ListViewItem  BorderBrush="Black" BorderThickness="1" Content="{Binding name}" ToolTip="{Binding path}" FontSize="24" Height="40" MouseDoubleClick="ListViewItem_Selected" Style="{DynamicResource ListViewItemStyle}" Background="#FFC6C7C2"/>
+                            <Button Content="x" HorizontalAlignment="Right" Width="36" Height="36" Margin="0,0,2,0" FontSize="24"  Click="Button_Click_RemoveRecentFileItem" Style="{DynamicResource ButtonStyle}" Padding="2,-8,1,0" Background="{x:Null}" BorderBrush="#00000000"/>
                         </Grid>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
         </Grid>
     </Grid>
+
 </Window>
