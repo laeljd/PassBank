@@ -1,16 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace PassBank
 {
@@ -19,9 +8,26 @@ namespace PassBank
     /// </summary>
     public partial class MainWindow : Window
     {
+        Page mainView;
+        Page newFileView;
+
         public MainWindow()
         {
+            mainView = new MainView(this);
+            newFileView = new NewFileView(this);
+
             InitializeComponent();
+
+            openMainView();
+        }
+
+        public void openMainView() {
+            this.Content = mainView;
+        }
+
+        public void openNewFileView()
+        {
+            this.Content = newFileView;
         }
     }
 }
