@@ -5,6 +5,6 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PassBank"
         mc:Ignorable="d"
-        Title="Window1" Height="450" Width="800" Background="#FF999A95">
+        Title="PassBank" Height="450" Width="800" Background="#FF999A95">
    
 </Window>

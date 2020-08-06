@@ -3,13 +3,13 @@ using System.Windows.Controls;
 namespace PassBank
 {
     /// <summary>
-    /// Interaction logic for NewFileView.xaml
+    /// Interaction logic for NewItemView.xaml
     /// </summary>
-    public partial class NewFileView : Page
+    public partial class NewItemView : Page
     {
         MainWindow mainWindows;
 
-        public NewFileView(MainWindow windowsContext)
+        public NewItemView(MainWindow windowsContext)
         {
             mainWindows = windowsContext;
             InitializeComponent();

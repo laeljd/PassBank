@@ -8,7 +8,7 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="MainView">
 
-   <Grid VerticalAlignment="Top" RenderTransformOrigin="1.492,0.552">
+    <Grid RenderTransformOrigin="1.492,0.552" Margin="0,0,0,10">
         <Grid Margin="10,10,0,0" Height="60" VerticalAlignment="Top">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="70"/>
@@ -28,8 +28,8 @@
             <TextBox x:Name="searchInput" Margin="0,0,30,0" Text=" Pesquisar..." VerticalAlignment="Center" Height="30" FontSize="18" Style="{DynamicResource TextBoxStyle}"/>
             <Button x:Name="searchButton" Height="30" FontSize="24" VerticalAlignment="Center" Width="30" HorizontalAlignment="Right" Grid.ColumnSpan="2" Style="{DynamicResource ButtonStyle}"/>
         </Grid>
-        <Border Margin="10,130,10,-305" BorderBrush="Black" BorderThickness="1" Background="#FFAFB0AB" CornerRadius="8"/>
-        <Grid Margin="10,130,10,-305" VerticalAlignment="Top">
+        <Border Margin="10,130,10,10" BorderBrush="Black" BorderThickness="1" Background="#FFAFB0AB" CornerRadius="8"/>
+        <Grid Margin="10,130,10,10" VerticalAlignment="Top">
             <!--<ListView>-->
             <!--<ListView.ItemTemplate>-->
             <!--<DataTemplate>-->

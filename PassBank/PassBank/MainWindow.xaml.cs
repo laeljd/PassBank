@@ -10,11 +10,13 @@ namespace PassBank
     {
         Page mainView;
         Page newFileView;
+        Page configView;
 
         public MainWindow()
         {
             mainView = new MainView(this);
-            newFileView = new NewFileView(this);
+            newFileView = new NewItemView(this);
+            //configView = new ConfigView(this);
 
             InitializeComponent();
 
@@ -28,6 +30,11 @@ namespace PassBank
         public void openNewFileView()
         {
             this.Content = newFileView;
+        }
+
+        public void openConfigView()
+        {
+            this.Content = configView;
         }
     }
 }
